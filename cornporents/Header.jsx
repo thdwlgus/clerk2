@@ -1,10 +1,13 @@
+import { auth } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
 
 const Header = () => {
+  const { userId } = auth()
+  console.log(userId)
   return (
     <>
-      <nav className="bg-red-900 py-4 px-8">
+      <nav className=" bg-red-500 py-4 px-8">
         <div className="flex items-center justify-between container">
           <div className="flex items-center font-bold">
             <Link href="/">
@@ -13,27 +16,45 @@ const Header = () => {
           </div>
 
           <div className="flex items-center font-bold">
-            <Link
-              href="/dashboard"
-              className="text-yellow-600 hover:text-white mr-4"
-            >
-              대시보드
-            </Link>
-
-            <div className="flex items-center font-bold">
-              <Link
-                href="/sign-in"
-                className="text-yellow-600 hover:text-white mr-4"
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/sign-up"
-                className="text-yellow-600 hover:text-white mr-4"
-              >
-                Sign Up
-              </Link>
-            </div>
+            {!userId ? (
+              //로그인이 안된 경우
+              <>
+                <Link
+                  href="/sign-in"
+                  className="text-yellow-600 hover:text-white mr-4"
+                >
+                  Sign In
+                </Link>
+                <Link
+                  href="/sign-up"
+                  className="text-yellow-600 hover:text-white mr-4"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              //로그인이 된 경우
+              <>
+                <Link
+                  href="/repos"
+                  className="text-blue-600 hover:text-white mr-4"
+                >
+                  Repository
+                </Link>
+                <Link
+                  href="/dashboard"
+                  className="text-blue-600 hover:text-white mr-4"
+                >
+                  대시보드
+                </Link>
+                <Link
+                  href="/profile"
+                  className="text-blue-600 hover:text-white mr-4"
+                >
+                  프로필
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </nav>
