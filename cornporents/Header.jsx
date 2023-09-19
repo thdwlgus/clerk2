@@ -7,7 +7,7 @@ const Header = () => {
   console.log(userId)
   return (
     <>
-      <nav className=" bg-red-500 py-4 px-8">
+      <nav className=" bg-red-400 py-4 px-8">
         <div className="flex items-center justify-between container">
           <div className="flex items-center font-bold">
             <Link href="/">
