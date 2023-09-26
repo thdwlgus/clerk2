@@ -1,4 +1,4 @@
-import { auth } from '@clerk/nextjs'
+import { UserButton, auth } from '@clerk/nextjs'
 import Link from 'next/link'
 import React from 'react'
 
@@ -7,7 +7,7 @@ const Header = () => {
   console.log(userId)
   return (
     <>
-      <nav className=" bg-red-400 py-4 px-8">
+      <nav className=" bg-red-900 py-4 px-8">
         <div className="flex items-center justify-between container">
           <div className="flex items-center font-bold">
             <Link href="/">
@@ -42,6 +42,12 @@ const Header = () => {
                   Repository
                 </Link>
                 <Link
+                  href="/courses"
+                  className="text-blue-600 hover:text-white mr-4"
+                >
+                  Courses
+                </Link>
+                <Link
                   href="/dashboard"
                   className="text-blue-600 hover:text-white mr-4"
                 >
@@ -53,6 +59,9 @@ const Header = () => {
                 >
                   프로필
                 </Link>
+                <div className="ml-auto">
+                  <UserButton aferSignOutUrl="/" />
+                </div>
               </>
             )}
           </div>
