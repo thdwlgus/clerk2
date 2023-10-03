@@ -38,6 +38,24 @@ export default function Home() {
           in web development
         </p>
       </div>
+      <div className="mb-4 bg-gray-100 p-4 m-4 rounded-lg">
+        <Link
+          href="https://github.com/thdwlgus/clerk2"
+          className="text-xl text-blue-700 font-bold"
+        >
+          Github repository
+        </Link>
+        <p className="mb-2"></p>
+      </div>
+      <div className="mb-4 bg-gray-100 p-4 m-4 rounded-lg">
+        <Link
+          href="https://clerk2-seven.vercel.app/"
+          className="text-xl text-blue-700 font-bold"
+        >
+          Web service at vercel.com
+        </Link>
+        <p className="mb-2"></p>
+      </div>
     </>
   )
 }
