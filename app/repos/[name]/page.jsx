@@ -1,7 +1,9 @@
 import Repo from '@/components/Repo'
-import RepoDirs from '@/components/RepoDirs'
+import RepoDirs from '@/components/Repo.Dirs'
 import Link from 'next/link'
 import React from 'react'
+
+const username = 'bradtraversy'
 
 const RepoPage = ({ params: { name } }) => {
   return (
@@ -14,7 +16,7 @@ const RepoPage = ({ params: { name } }) => {
       </Link>
 
       <Repo name={name} />
-      <RepoDirs name={name} />
+      <RepoDirs name={name}></RepoDirs>
     </div>
   )
 }
